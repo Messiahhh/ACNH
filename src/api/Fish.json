@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Bitterling",
         "name_zh": "红目鲫",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Smallest",
         "price": 900,
         "times": {
@@ -25,7 +25,7 @@
         "id": 2,
         "name": "Pale Chub",
         "name_zh": "溪哥",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Smallest",
         "price": 160,
         "times": {
@@ -81,7 +81,7 @@
         "id": 3,
         "name": "Crucian Carp",
         "name_zh": "鲫鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 160,
         "times": {
@@ -154,7 +154,7 @@
         "id": 4,
         "name": "Dace",
         "name_zh": "雅罗鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Medium",
         "price": 240,
         "times": {
@@ -220,7 +220,7 @@
         "id": 5,
         "name": "Carp",
         "name_zh": "鲤鱼",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Large",
         "price": 300,
         "times": {
@@ -293,7 +293,7 @@
         "id": 6,
         "name": "Koi",
         "name_zh": "锦鲤",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Large",
         "price": 4000,
         "times": {
@@ -359,7 +359,7 @@
         "id": 7,
         "name": "Goldfish",
         "name_zh": "金鱼",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Smallest",
         "price": 1300,
         "times": {
@@ -432,7 +432,7 @@
         "id": 8,
         "name": "Pop-eyed Goldfish",
         "name_zh": "龙睛金鱼",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Smallest",
         "price": 1300,
         "times": {
@@ -488,7 +488,7 @@
         "id": 9,
         "name": "Ranchu Goldfish",
         "name_zh": "兰寿金鱼",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Small",
         "price": 4500,
         "times": {
@@ -544,7 +544,7 @@
         "id": 10,
         "name": "Killifish",
         "name_zh": "稻田鱼",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Smallest",
         "price": 300,
         "times": {
@@ -603,7 +603,7 @@
         "id": 11,
         "name": "Crawfish",
         "name_zh": "淡水龙虾",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Small",
         "price": 200,
         "times": {
@@ -663,7 +663,7 @@
         "id": 12,
         "name": "Soft-shelled Turtle",
         "name_zh": "鳖",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Large",
         "price": 3750,
         "times": {
@@ -709,7 +709,7 @@
         "id": 13,
         "name": "Snapping Turtle",
         "name_zh": "拟鳄龟",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Extra Large",
         "price": 5000,
         "times": {
@@ -765,7 +765,7 @@
         "id": 14,
         "name": "Tadpole",
         "name_zh": "蝌蚪",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Smallest",
         "price": 100,
         "times": {
@@ -825,7 +825,7 @@
         "id": 15,
         "name": "Frog",
         "name_zh": "青蛙",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Small",
         "price": 120,
         "times": {
@@ -882,7 +882,7 @@
         "id": 16,
         "name": "Freshwater Goby",
         "name_zh": "塘鳢鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 400,
         "times": {
@@ -948,7 +948,7 @@
         "id": 17,
         "name": "Loach",
         "name_zh": "泥鳅",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 400,
         "times": {
@@ -1003,7 +1003,7 @@
         "id": 18,
         "name": "Catfish",
         "name_zh": "鲶鱼",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Large",
         "price": 800,
         "times": {
@@ -1055,7 +1055,7 @@
         "id": 19,
         "name": "Giant Snakehead",
         "name_zh": "黑鱼",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Extra Large",
         "price": 5500,
         "times": {
@@ -1093,7 +1093,7 @@
         "id": 20,
         "name": "Bluegill",
         "name_zh": "蓝腮太阳鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 180,
         "times": {
@@ -1149,7 +1149,7 @@
         "id": 21,
         "name": "Yellow Perch",
         "name_zh": "黄鲈鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Medium",
         "price": 300,
         "times": {
@@ -1209,7 +1209,7 @@
         "id": 22,
         "name": "Black Bass",
         "name_zh": "黑鲈鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Large",
         "price": 400,
         "times": {
@@ -1282,7 +1282,7 @@
         "id": 23,
         "name": "Tilapia",
         "name_zh": "吴郭鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Medium",
         "price": 800,
         "times": {
@@ -1339,7 +1339,7 @@
         "id": 24,
         "name": "Pike",
         "name_zh": "白斑狗鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Extra Large",
         "price": 1800,
         "times": {
@@ -1396,7 +1396,7 @@
         "id": 25,
         "name": "Pond Smelt",
         "name_zh": "西太公鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 500,
         "times": {
@@ -1451,7 +1451,7 @@
         "id": 26,
         "name": "Sweetfish",
         "name_zh": "香鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Medium",
         "price": 900,
         "times": {
@@ -1506,7 +1506,7 @@
         "id": 27,
         "name": "Cherry Salmon",
         "name_zh": "樱花钩吻鲑",
-        "location": "River (Clifftop)",
+        "location": "悬崖上",
         "shadow_size": "Medium",
         "price": 1000,
         "times": {
@@ -1562,7 +1562,7 @@
         "id": 28,
         "name": "Char",
         "name_zh": "花羔红点鲑",
-        "location": "River (Clifftop)\/Pond",
+        "location": "悬崖上",
         "shadow_size": "Medium",
         "price": 3800,
         "times": {
@@ -1618,7 +1618,7 @@
         "id": 29,
         "name": "Golden Trout",
         "name_zh": "金鳟",
-        "location": "River (Clifftop)",
+        "location": "悬崖上",
         "shadow_size": "Medium",
         "price": 15000,
         "times": {
@@ -1674,7 +1674,7 @@
         "id": 30,
         "name": "Stringfish",
         "name_zh": "远东哲罗鱼",
-        "location": "River (Clifftop)",
+        "location": "悬崖上",
         "shadow_size": "Largest",
         "price": 15000,
         "times": {
@@ -1723,7 +1723,7 @@
         "id": 31,
         "name": "Salmon",
         "name_zh": "鲑鱼",
-        "location": "River (mouth)",
+        "location": "入海口",
         "shadow_size": "Small",
         "price": 700,
         "times": {
@@ -1774,7 +1774,7 @@
         "id": 32,
         "name": "King Salmon",
         "name_zh": "帝王鲑",
-        "location": "River (mouth)",
+        "location": "入海口",
         "shadow_size": "Smallest",
         "price": 1800,
         "times": {
@@ -1825,7 +1825,7 @@
         "id": 33,
         "name": "Mitten Crab",
         "name_zh": "中华绒螯蟹",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 2000,
         "times": {
@@ -1873,7 +1873,7 @@
         "id": 34,
         "name": "Guppy",
         "name_zh": "孔雀鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Smallest",
         "price": 1300,
         "times": {
@@ -1918,7 +1918,7 @@
         "id": 35,
         "name": "Nibble Fish",
         "name_zh": "温泉医生鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 1500,
         "times": {
@@ -1959,7 +1959,7 @@
         "id": 36,
         "name": "Angelfish",
         "name_zh": "神仙鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 3000,
         "times": {
@@ -2011,7 +2011,7 @@
         "id": 37,
         "name": "Betta",
         "name_zh": "斗鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 2500,
         "times": {
@@ -2053,7 +2053,7 @@
         "id": 38,
         "name": "Neon Tetra",
         "name_zh": "霓虹灯鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Smallest",
         "price": 500,
         "times": {
@@ -2098,7 +2098,7 @@
         "id": 39,
         "name": "Rainbowfish",
         "name_zh": "彩虹鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 800,
         "times": {
@@ -2140,7 +2140,7 @@
         "id": 40,
         "name": "Piranha",
         "name_zh": "食人鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Small",
         "price": 2500,
         "times": {
@@ -2186,7 +2186,7 @@
         "id": 41,
         "name": "Arowana",
         "name_zh": "骨舌鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Large",
         "price": 10000,
         "times": {
@@ -2235,7 +2235,7 @@
         "id": 42,
         "name": "Dorado",
         "name_zh": "黄金河虎",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Extra Large",
         "price": 15000,
         "times": {
@@ -2284,7 +2284,7 @@
         "id": 43,
         "name": "Gar",
         "name_zh": "雀鳝",
-        "location": "Pond",
+        "location": "池塘",
         "shadow_size": "Largest",
         "price": 6000,
         "times": {
@@ -2333,7 +2333,7 @@
         "id": 44,
         "name": "Arapaima",
         "name_zh": "巨骨舌鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Largest",
         "price": 10000,
         "times": {
@@ -2382,7 +2382,7 @@
         "id": 45,
         "name": "Saddled Bichir",
         "name_zh": "恩氏多鳍鱼",
-        "location": "River",
+        "location": "河流",
         "shadow_size": "Large",
         "price": 4000,
         "times": {
@@ -2421,7 +2421,7 @@
         "id": 46,
         "name": "Sturgeon",
         "name_zh": "鲟鱼",
-        "location": "River (mouth)",
+        "location": "入海口",
         "shadow_size": "Largest",
         "price": 10000,
         "times": {
@@ -2483,7 +2483,7 @@
         "id": 47,
         "name": "Sea Butterfly",
         "name_zh": "海蝴蝶",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Smallest",
         "price": 1000,
         "times": {
@@ -2539,7 +2539,7 @@
         "id": 48,
         "name": "Sea Horse",
         "name_zh": "海马",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Smallest",
         "price": 1100,
         "times": {
@@ -2601,7 +2601,7 @@
         "id": 49,
         "name": "Clown Fish",
         "name_zh": "小丑鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Smallest",
         "price": 650,
         "times": {
@@ -2661,7 +2661,7 @@
         "id": 50,
         "name": "Surgeonfish",
         "name_zh": "拟刺尾鲷",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Small",
         "price": 1000,
         "times": {
@@ -2721,7 +2721,7 @@
         "id": 51,
         "name": "Butterfly Fish",
         "name_zh": "耳带蝴蝶鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Small",
         "price": 1000,
         "times": {
@@ -2781,7 +2781,7 @@
         "id": 52,
         "name": "Napoleonfish",
         "name_zh": "苏眉鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Largest",
         "price": 10000,
         "times": {
@@ -2827,7 +2827,7 @@
         "id": 53,
         "name": "Zebra Turkeyfish",
         "name_zh": "狮子鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Medium",
         "price": 500,
         "times": {
@@ -2889,7 +2889,7 @@
         "id": 54,
         "name": "Blowfish",
         "name_zh": "河豚",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Medium",
         "price": 5000,
         "times": {
@@ -2932,7 +2932,7 @@
         "id": 55,
         "name": "Puffer Fish",
         "name_zh": "刺豚",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Medium",
         "price": 250,
         "times": {
@@ -2987,7 +2987,7 @@
         "id": 56,
         "name": "Anchovy",
         "name_zh": "凤尾鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Small",
         "price": 200,
         "times": {
@@ -3053,7 +3053,7 @@
         "id": 57,
         "name": "Horse Mackerel",
         "name_zh": "竹荚鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Small",
         "price": 150,
         "times": {
@@ -3126,7 +3126,7 @@
         "id": 58,
         "name": "Barred Knifejaw",
         "name_zh": "条石鲷",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Medium",
         "price": 5000,
         "times": {
@@ -3190,7 +3190,7 @@
         "id": 59,
         "name": "Sea Bass",
         "name_zh": "鲈鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Extra Large",
         "price": 400,
         "times": {
@@ -3263,7 +3263,7 @@
         "id": 60,
         "name": "Red Snapper",
         "name_zh": "鲷鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Large",
         "price": 3000,
         "times": {
@@ -3336,7 +3336,7 @@
         "id": 61,
         "name": "Dab",
         "name_zh": "鲽鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Medium",
         "price": 300,
         "times": {
@@ -3397,7 +3397,7 @@
         "id": 62,
         "name": "Olive Flounder",
         "name_zh": "比目鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Large",
         "price": 800,
         "times": {
@@ -3470,7 +3470,7 @@
         "id": 63,
         "name": "Squid",
         "name_zh": "鱿鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Medium",
         "price": 500,
         "times": {
@@ -3531,7 +3531,7 @@
         "id": 64,
         "name": "Moray Eel",
         "name_zh": "裸胸鳝",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Extra Large",
         "price": 2000,
         "times": {
@@ -3586,7 +3586,7 @@
         "id": 65,
         "name": "Ribbon Eel",
         "name_zh": "五彩鳗",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Narrow",
         "price": 600,
         "times": {
@@ -3643,7 +3643,7 @@
         "id": 66,
         "name": "Tuna",
         "name_zh": "鲔鱼",
-        "location": "Pier",
+        "location": "码头",
         "shadow_size": "Extra Large",
         "price": 7000,
         "times": {
@@ -3702,7 +3702,7 @@
         "id": 67,
         "name": "Blue Marlin",
         "name_zh": "旗鱼",
-        "location": "Pier",
+        "location": "码头",
         "shadow_size": "Extra Large",
         "price": 10000,
         "times": {
@@ -3768,7 +3768,7 @@
         "id": 68,
         "name": "Giant Trevally",
         "name_zh": "白面弄鱼",
-        "location": "Pier",
+        "location": "码头",
         "shadow_size": "Large",
         "price": 4500,
         "times": {
@@ -3827,7 +3827,7 @@
         "id": 69,
         "name": "Mahi-mahi",
         "name_zh": "鬼头刀",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Large",
         "price": 6000,
         "times": {
@@ -3886,7 +3886,7 @@
         "id": 70,
         "name": "Ocean Sunfish",
         "name_zh": "翻车鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Largest (Fin)",
         "price": 4000,
         "times": {
@@ -3934,7 +3934,7 @@
         "id": 71,
         "name": "Ray",
         "name_zh": "鳐鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Extra Large",
         "price": 3000,
         "times": {
@@ -3984,7 +3984,7 @@
         "id": 72,
         "name": "Saw Shark",
         "name_zh": "锯鲨",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Largest (Fin)",
         "price": 12000,
         "times": {
@@ -4033,7 +4033,7 @@
         "id": 73,
         "name": "Hammerhead Shark",
         "name_zh": "双鬓鲨",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Largest (Fin)",
         "price": 8000,
         "times": {
@@ -4082,7 +4082,7 @@
         "id": 74,
         "name": "Great White Shark",
         "name_zh": "鲨鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Largest (Fin)",
         "price": 15000,
         "times": {
@@ -4131,7 +4131,7 @@
         "id": 75,
         "name": "Whale Shark",
         "name_zh": "鲸鲨",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Largest (Fin)",
         "price": 13000,
         "times": {
@@ -4187,7 +4187,7 @@
         "id": 76,
         "name": "Suckerfish",
         "name_zh": "吸盘鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "(Fin)",
         "price": 1500,
         "times": {
@@ -4243,7 +4243,7 @@
         "id": 77,
         "name": "Football Fish",
         "name_zh": "灯笼鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Large",
         "price": 2500,
         "times": {
@@ -4294,7 +4294,7 @@
         "id": 78,
         "name": "Oarfish",
         "name_zh": "皇带鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Largest",
         "price": 9000,
         "times": {
@@ -4352,7 +4352,7 @@
         "id": 79,
         "name": "Barreleye",
         "name_zh": "太平洋桶眼鱼",
-        "location": "Sea",
+        "location": "大海",
         "shadow_size": "Small",
         "price": 15000,
         "times": {
@@ -4408,7 +4408,7 @@
         "id": 80,
         "name": "Coelacanth",
         "name_zh": "矛尾鱼",
-        "location": "Sea (rainy days)",
+        "location": "雨天大海",
         "shadow_size": "Largest",
         "price": 15000,
         "times": {

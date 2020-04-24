@@ -1,0 +1,27 @@
+$color: pink;
+
+.contain {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    margin-top: 40px;
+    .item {
+        box-sizing: border-box;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        padding: 5px;
+        border: 1px solid $color;
+        border-radius: 4px;
+        margin: 0 8px 8px 0;
+        // margin: 8px auto;
+
+        .fish_img {
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+        }
+    }
+}
+
