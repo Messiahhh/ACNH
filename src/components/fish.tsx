@@ -1,15 +1,21 @@
 import React from 'react'
 
-import json from '../api/Fish.json'
-import months from '../utils/months'
-import sizes from '../utils/sizes'
+import Months from './common/months'
+import Places from './common/places'
+import Sizes from "./common/sizes";
+
+import json from '../api/json/Fish.json'
+import months from '../api/utils/months'
+import sizes from '../api/utils/sizes'
 
 // 批量加载图片
 let arr: string[] = []
 
+
+
 function importImage(arr: string[]): void {
     for (let i = 0; i < 80; i++) {
-        let img = require(`../images/fish-${i + 1}.png`)
+        let img = require(`../static/images/fish-${i + 1}.png`)
         arr.push(img)
     }
 }
@@ -42,9 +48,15 @@ function Fish(props: any) {
     
 
     return (
-        <div className="contain">
-            { result }
+        <div>
+            <Months></Months>
+            <Places></Places>
+            <Sizes></Sizes>
+            <div className="contain">
+                { result }
+            </div>
         </div>
+        
     )
 }
 

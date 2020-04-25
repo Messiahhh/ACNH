@@ -1,3 +1,8 @@
-### 练手项目
+### 随便练练手
 
-希望好心人可以提供一些API
+进度0
+
+##### 技术栈
+
+React +redux + TypeScript + Antd + Sass
+
