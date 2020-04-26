@@ -5,19 +5,19 @@ import { useSelector } from 'react-redux'
 import 'antd/dist/antd.css' 
 import './index.scss'
 
-interface RootState {
-    month: string,
-    place: string,
-    size: string,
-}
+import hero from './static/images/hero.jpg'
+
+
 
 
 function App() {
-    let state = useSelector((state: RootState) => state)
     return (
         <div className="app">
-            {state.place}
-            <Fish></Fish>
+            <header className="header"></header>
+            <main className="main">
+                <Fish></Fish>
+            </main>
+            <footer className="footer"></footer>
         </div>
     )
 }

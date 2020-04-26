@@ -1,21 +1,38 @@
 import React from 'react'
+import { 
+    useSelector,
+    useDispatch,
+} from 'react-redux'
 
+// 公共组件
 import Months from './common/months'
 import Places from './common/places'
 import Sizes from "./common/sizes";
 
+// json数据
 import json from '../api/json/Fish.json'
 import months from '../api/utils/months'
 import sizes from '../api/utils/sizes'
 
+import { 
+    changeMonth,
+    changePlace,
+    changeSize,
+} from '../store/actions'
+
+// 接口
+interface RootState {
+    month: string,
+    place: string,
+    size: string,
+}
+
 // 批量加载图片
 let arr: string[] = []
 
-
-
 function importImage(arr: string[]): void {
     for (let i = 0; i < 80; i++) {
-        let img = require(`../static/images/fish-${i + 1}.png`)
+        let img = require(`../static/images/fish/fish-${i + 1}.png`)
         arr.push(img)
     }
 }
@@ -26,11 +43,38 @@ importImage(arr)
 
 
 function Fish(props: any) {
-    let { month, place, size } = props 
-    let set = new Set()
-    let result = json.map((item, index) => {
-        set.add(item.shadow_size)
-        if ((months[month] === 0 || item.months.northern.array.includes(months[month])) && (place === '所有地点' || item.location === place ) && (size === '所有大小' || item.shadow_size === sizes[size] )) {
+    const [
+        month,
+        place,
+        size
+    ] = useSelector((state: RootState) => [state.month, state.place, state.size])
+
+    const dispatch = useDispatch()
+
+
+   
+    function onMonthChange (value: string) {
+        dispatch(changeMonth(value))
+    }
+    
+    function onPlaceChange (value: string) {
+        dispatch(changePlace(value))
+    }
+
+    function onSizeChange (value: string) {
+        dispatch(changeSize(value))
+    }
+
+    const match = (item: any) => {
+        return (
+            (months[month] === 0 || item.months.northern.array.includes(months[month])) && 
+            (place === '所有地点' || item.location === place ) && 
+            (size === '所有大小' || item.shadow_size === sizes[size])
+        )
+    }
+
+    const result = json.map((item, index) => {
+        if (match(item)) {
             return (
             <div className="item" key={item.id}>
                 <div>
@@ -44,14 +88,13 @@ function Fish(props: any) {
             )
         }
     })
-    console.log(set);
     
 
     return (
         <div>
-            <Months></Months>
-            <Places></Places>
-            <Sizes></Sizes>
+            <Months handleChange={onMonthChange}></Months>
+            <Places handleChange={onPlaceChange}></Places>
+            <Sizes handleChange={onSizeChange}></Sizes>
             <div className="contain">
                 { result }
             </div>

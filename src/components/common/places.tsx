@@ -1,17 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Select } from 'antd'
 
 const { Option } = Select
 
-function Places() {
-    let [place, setPlace] = useState('所有地点')
-
-    const handlePlaceChange = (value: string) => {
-        setPlace(value)
-    }
+function Places({
+    handleChange
+}: any) {
 
     return (
-        <Select style={{ width: 200 }} placeholder="所有地点" onChange={handlePlaceChange}>
+        <Select style={{ width: 200 }} placeholder="所有地点" onChange={(v) => handleChange(v)}>
             <Option value="所有地点">所有地点</Option>
             <Option value="河流">河流</Option>
             <Option value="池塘">池塘</Option>

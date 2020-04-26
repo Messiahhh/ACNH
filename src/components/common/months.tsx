@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Select } from 'antd'
 
 const { Option } = Select
 
-function Months() {
-    let [month, setMouth] = useState('所有时间')
-
-    const handleMonthChange = (value: string) => {
-        setMouth(value)
-    }
-
-    
+function Months({
+    handleChange
+}: any) {    
     return (
-        <Select style={{ width: 200 }} placeholder="所有时间" onChange={handleMonthChange}>
+        <Select style={{ width: 200 }} placeholder="所有时间" onChange={(value) => handleChange(value)}>
                 <Option value="所有时间">所有时间</Option>
                 <Option value="一月">一月</Option>
                 <Option value="二月">二月</Option>

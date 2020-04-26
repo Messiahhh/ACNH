@@ -1,5 +1,5 @@
 const size: any = {
-    超小: "Smallest",
+    最小: "Smallest",
     小: "Small",
     中等: "Medium",
     大: "Large",

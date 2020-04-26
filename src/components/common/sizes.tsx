@@ -1,19 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Select } from 'antd'
 
 const { Option } = Select
 
-function Sizes() {
-    let [size, setSize] = useState('所有大小')
-
-    const handleSizeChange = (value: string) => {
-        setSize(value)
-    }
-
-
-
+function Sizes({
+    handleChange
+}: any) {
     return (
-        <Select style={{ width: 200 }} placeholder="所有大小" onChange={handleSizeChange}>
+        <Select style={{ width: 200 }} placeholder="所有大小" onChange={(v) => handleChange(v)}>
+            <Option value="所有大小">所有大小</Option>
             <Option value="最小">最小</Option>
             <Option value="小">小</Option>
             <Option value="中等">中等</Option>
