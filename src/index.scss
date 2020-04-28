@@ -1,38 +1,75 @@
-$color: pink;
+
+$color: #000;
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	background: url('./static/images/pattern-leaves-white.jpg');
 }
+
 img {
 	display: block;
 }
+
+
 .header {
-	width: 100%;
 	height: 300px;
-	background: url('static/images/hero.jpg');
-	background-repeat: no-repeat;
+	background: url('static/images/hero.jpg') no-repeat;
 	background-size: 100%;
-	background-position: 50% 70%;
-	display: flex;
-	justify-content: center;
-	// align-items: center;
-	.logo {
-		width: 300px;
-		height: 200px;
-		// background: url('static/images/logo.png') no-repeat;
-		background-size: cover;
-	}
-	
+    background-position: 50% 70%;	
+
 } 
 
 .main {
-	min-height: 900px;
+    width: 1200px;
+    min-height: 900px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    margin: 20px auto;
+    background: #f8eebc;
+
+    .types {
+        height: 150px;
+        padding: 20px;  
+        border-radius: 30px;
+        background: #f7f4e5;
+        margin-bottom: 50px;    
+        display: flex;
+        .type {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            cursor: pointer;
+
+            &.type-fishes {
+                background-image: url('./static/images/fishes.jpg');
+            }
+
+            &.type-bugs {
+                background-image: url('./static/images/bugs.jpg');
+            }
+
+            &.type-fossil {
+                background-image: url('./static/images/fossil.jpg');
+            }
+
+            &.type-flowers {
+                background-image: url('./static/images/flowers.jpg');
+            }
+
+            &.type-disc {
+                background-image: url('./static/images/disc.jpg');
+            }
+
+
+        }
+
+        
+    }
 }
+
+
 
 .footer {
 	height: 240px;

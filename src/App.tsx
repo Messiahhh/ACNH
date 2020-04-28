@@ -1,13 +1,8 @@
 import React from 'react'
-import Fish from './components/fish'
-import { connect } from 'react-redux'
-import { useSelector } from 'react-redux'
 import 'antd/dist/antd.css' 
+
+import Fish from './components/fish'
 import './index.scss'
-
-import hero from './static/images/hero.jpg'
-
-
 
 
 function App() {
@@ -15,6 +10,13 @@ function App() {
         <div className="app">
             <header className="header"></header>
             <main className="main">
+                <div className="types">
+                    <div className="type type-fishes"></div>
+                    <div className="type type-bugs"></div>
+                    <div className="type type-fossil"></div>
+                    <div className="type type-flowers"></div>
+                    <div className="type type-disc"></div>
+                </div>
                 <Fish></Fish>
             </main>
             <footer className="footer"></footer>

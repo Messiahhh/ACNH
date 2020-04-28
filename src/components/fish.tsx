@@ -8,6 +8,7 @@ import {
 import Months from './common/months'
 import Places from './common/places'
 import Sizes from "./common/sizes";
+import Times from './common/times'
 
 // json数据
 import json from '../api/json/Fish.json'
@@ -95,6 +96,9 @@ function Fish(props: any) {
             <Months handleChange={onMonthChange}></Months>
             <Places handleChange={onPlaceChange}></Places>
             <Sizes handleChange={onSizeChange}></Sizes>
+            <Times></Times>
+            <span> - </span>
+            <Times></Times>
             <div className="contain">
                 { result }
             </div>
