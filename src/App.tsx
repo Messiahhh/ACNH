@@ -1,7 +1,10 @@
 import React from 'react'
 import 'antd/dist/antd.css' 
 
-import Fish from './components/fish'
+import Fishs from './components/fishs'
+import Bugs from './components/bugs'
+import Fossils from './components/fossils'
+import Music from './components/music'
 import './index.scss'
 
 
@@ -17,7 +20,10 @@ function App() {
                     <div className="type type-flowers"></div>
                     <div className="type type-disc"></div>
                 </div>
-                <Fish></Fish>
+                <Fishs></Fishs>
+                <Bugs></Bugs>
+                <Fossils></Fossils>
+                <Music></Music>
             </main>
             <footer className="footer"></footer>
         </div>

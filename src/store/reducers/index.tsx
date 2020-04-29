@@ -17,12 +17,6 @@ const Select = (
 ): State => {
     switch(action.type) {
         case CHANGE_MONTH:
-            let obj = Object.assign(state, {
-                month: action.payload
-            })
-            console.log(obj);
-            
-            return obj
             return Object.assign(state, {
                 month: action.payload
             })

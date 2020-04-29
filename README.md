@@ -1,8 +1,12 @@
 ### 练手玩玩
 
+[API接口网站](https://github.com/alexislours/ACNHAPI)
+
 ##### 技术栈
 
-React + Redux + TypeScript + Antd + Sass
+React + Redux + React-Router + TypeScript + Antd + Sass
+
+
 
 
 
@@ -37,12 +41,5 @@ background-repeat: no-repeat;
 
 
 
-###### 坑2
 
-（主要是不熟悉ts）
-
-``` tsx
-let { month, place, size} = useSelector((state: RootState) => state)
-let m = useSelector((state: RootState) => state.month)
-```
 
