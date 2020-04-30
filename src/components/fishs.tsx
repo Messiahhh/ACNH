@@ -95,9 +95,9 @@ function Fishs(props: any) {
 
     return (
         <div>
-            <Months handleChange={onMonthChange}></Months>
+            {/* <Months handleChange={onMonthChange}></Months>
             <Places handleChange={onPlaceChange}></Places>
-            <Sizes handleChange={onSizeChange}></Sizes>
+            <Sizes handleChange={onSizeChange}></Sizes> */}
             <div className="contain">
                 { result }
             </div>
