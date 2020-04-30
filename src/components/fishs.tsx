@@ -8,12 +8,13 @@ import {
 import Months from './common/months'
 import Places from './common/places'
 import Sizes from "./common/sizes";
-import Times from './common/times'
 
-// json数据
 import json from '../api/json/fishs.json'
-import months from '../api/utils/months'
-import sizes from '../api/utils/sizes'
+import {
+    months,
+    places,
+    sizes,
+} from '../api/utils/fishs'
 
 import { 
     changeMonth,
@@ -28,34 +29,60 @@ interface RootState {
     size: string,
 }
 
-Object.values(json)
-
-// 批量加载图片
-let arr: string[] = []
-
-// function importImage(arr: string[]): void {
-//     for (let i = 0; i < 80; i++) {
-//         let img = require(`../static/deprecated/fish/fish-${i + 1}.png`)
-//         arr.push(img)
-//     }
-// }
-
-// importImage(arr)
 
 
+/**
+ * @param {number} month
+ * @param {string} interval
+ * @returns {boolean}
+ */
+function monthMatchInterval(month: number, interval: string): boolean {
+    const [month_start, month_end] = interval.split('-').map(i => Number(i))
+    if (month_start > month_end) {
+        if (month >= month_start || month <= month_end) return true
+    }
+    else {
+        if (month >= month_start && month <= month_end) return true
+    }
+    return false
+}
+
+function matchMonth(month: number, interval: string){
+    if (month === 0 || interval === '') return true
+    if (interval.includes('&')) {
+        const [interval_a, interval_b] = interval.split('&').map(s => s.trim())
+        return monthMatchInterval(month, interval_a) || monthMatchInterval(month, interval_b)
+    } else {
+        return monthMatchInterval(month, interval)
+    }
+}
+
+function matchPlace(p1: string, p2: string): boolean {
+    if (p1 === '') return true
+    if (p2.includes('&')) {
+        const [place_a, place_b] = p2.split('&').map(s => s.trim())
+        return p1 === place_a || p1 === place_b
+    }
+    return p1 === p2
+}
+
+function matchSize(s1: string, s2: string): boolean {
+    if (s1 === '') return true
+    if (s1 === 'fin' && s2.includes('fin')) return true
+    if (s1.includes('6') && s2.includes('fin (6)')) return true 
+    if (s1.includes('Medium') && s2.includes('fin (4)')) return true
+    return s1 === s2 
+}
 
 
 function Fishs(props: any) {
+    const dispatch = useDispatch()
     const [
         month,
         place,
         size
     ] = useSelector((state: RootState) => [state.month, state.place, state.size])
-
-    const dispatch = useDispatch()
-
-
-   
+    
     function onMonthChange (value: string) {
         dispatch(changeMonth(value))
     }
@@ -68,36 +95,39 @@ function Fishs(props: any) {
         dispatch(changeSize(value))
     }
 
-    const match = (item: any) => {
-        return (
-            (months[month] === 0 || item.months.northern.array.includes(months[month])) && 
-            (place === '所有地点' || item.location === place ) && 
-            (size === '所有大小' || item.shadow_size === sizes[size])
-        )
-    }
+    
+    
 
     const result = Object.values(json).map((item, index) => {
-        // if (match(item)) {
+        const item_month = item.availability["month-northern"]
+        const item_place = item.availability.location
+        const item_size = item.shadow
+
+
+        if (matchMonth(months[month], item_month) && matchPlace(places[place], item_place) && matchSize(sizes[size], item_size)) {
             return (
-            <div className="item" key={item.id}>
-                <div>
-                    {item.name['name-cn']}
+                <div className="item" key={item.id}>
+                    <div>
+                        {item.name['name-cn']}
+                    </div>
+                    <div>
+                        ${item.price}
+                    </div>
+                    <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)}/>
                 </div>
-                <div>
-                    ${item.price}
-                </div>
-                <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)}/>
-            </div>
             )
-        // }
+        } else {
+            return null
+        }
+        
     })
     
 
     return (
         <div>
-            {/* <Months handleChange={onMonthChange}></Months>
+            <Months handleChange={onMonthChange}></Months>
             <Places handleChange={onPlaceChange}></Places>
-            <Sizes handleChange={onSizeChange}></Sizes> */}
+            <Sizes handleChange={onSizeChange}></Sizes>
             <div className="contain">
                 { result }
             </div>

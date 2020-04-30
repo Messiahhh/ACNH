@@ -16,7 +16,6 @@ function Sizes({
             <Option value="超大">超大</Option>
             <Option value="最大">最大</Option>
             <Option value="狭长">狭长</Option>
-            <Option value="最大带背鳍">最大带背鳍</Option>
             <Option value="背鳍">背鳍</Option>
         </Select>
     )
