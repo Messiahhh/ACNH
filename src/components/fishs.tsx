@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {
+    useState
+} from 'react'
 import { 
     useSelector,
     useDispatch,
 } from 'react-redux'
+import {
+    Button,
+} from 'antd'
 
 // 公共组件
 import Months from './common/months'
@@ -21,6 +26,7 @@ import {
     changePlace,
     changeSize,
 } from '../store/actions'
+import Item from 'antd/lib/list/Item'
 
 // 接口
 interface RootState {
@@ -76,6 +82,7 @@ function matchSize(s1: string, s2: string): boolean {
 
 
 function Fishs(props: any) {
+    const [sort, setSort] = useState(false) 
     const dispatch = useDispatch()
     const [
         month,
@@ -83,18 +90,24 @@ function Fishs(props: any) {
         size
     ] = useSelector((state: RootState) => [state.month, state.place, state.size])
     
-    function onMonthChange (value: string) {
+    function onMonthChange (value: string): void {
         dispatch(changeMonth(value))
     }
     
-    function onPlaceChange (value: string) {
+    function onPlaceChange (value: string): void {
         dispatch(changePlace(value))
     }
 
-    function onSizeChange (value: string) {
+    function onSizeChange (value: string): void {
         dispatch(changeSize(value))
     }
 
+    function sortByPrice(): void {
+        setSort(true)
+    }
+    function sortByOrder(): void {
+        setSort(false)
+    }
     
     
 
@@ -106,7 +119,7 @@ function Fishs(props: any) {
 
         if (matchMonth(months[month], item_month) && matchPlace(places[place], item_place) && matchSize(sizes[size], item_size)) {
             return (
-                <div className="item" key={item.id}>
+                <div className="item" style={{order: sort ? item.price : 0}} key={item.id} data-price={item.price}>
                     <div>
                         {item.name['name-cn']}
                     </div>
@@ -128,6 +141,8 @@ function Fishs(props: any) {
             <Months handleChange={onMonthChange}></Months>
             <Places handleChange={onPlaceChange}></Places>
             <Sizes handleChange={onSizeChange}></Sizes>
+            <Button onClick={sortByPrice}>按售价排序（由低到高）</Button>
+            <Button onClick={sortByOrder}>按顺序排序</Button>
             <div className="contain">
                 { result }
             </div>
