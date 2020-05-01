@@ -1,6 +1,12 @@
 import React, {
     useState
 } from 'react'
+import {
+    Link,
+    Switch,
+    Route,
+    useRouteMatch,
+} from 'react-router-dom'
 import { 
     useSelector,
     useDispatch,
@@ -139,6 +145,7 @@ function matchSize(s1: string, s2: string): boolean {
 
 
 function Fishs(props: any) {
+    const { path, url} = useRouteMatch()
     const [sort, setSort] = useState(false) 
     const dispatch = useDispatch()
     const [
@@ -166,44 +173,52 @@ function Fishs(props: any) {
         setSort(false)
     }
     
+    const dataSource = Object.values(json)
     
 
-    // const result = Object.values(json).map((item, index) => {
-    //     const item_month = item.availability["month-northern"]
-    //     const item_place = item.availability.location
-    //     const item_size = item.shadow
+    const result = dataSource.map((item, index) => {
+        const item_month = item.availability["month-northern"]
+        const item_place = item.availability.location
+        const item_size = item.shadow
 
-    //     if (matchMonth(months[month], item_month) && matchPlace(places[place], item_place) && matchSize(sizes[size], item_size)) {
-    //         return (
-    //             <div className="item" style={{order: sort ? item.price : 0}} key={item.id} data-price={item.price}>
-    //                 <div>
-    //                     {item.name['name-cn']}
-    //                 </div>
-    //                 <div>
-    //                     ${item.price}
-    //                 </div>
-    //                 <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)}/>
-    //             </div>
-    //         )
-    //     } else {
-    //         return null
-    //     }
-    // })
-    const dataSource = Object.values(json)
+        if (matchMonth(months[month], item_month) && matchPlace(places[place], item_place) && matchSize(sizes[size], item_size)) {
+            return (
+                <div className="item" style={{order: sort ? item.price : 0}} key={item.id} data-price={item.price}>
+                    <div>
+                        {item.name['name-cn']}
+                    </div>
+                    <div>
+                        ${item.price}
+                    </div>
+                    <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)}/>
+                </div>
+            )
+        } else {
+            return null
+        }
+    })
 
     
 
     return (
         <div>
-            {/* <Months handleChange={onMonthChange}></Months>
-            <Places handleChange={onPlaceChange}></Places>
-            <Sizes handleChange={onSizeChange}></Sizes>
-            <Button onClick={sortByPrice}>按售价排序（由低到高）</Button>
-            <Button onClick={sortByOrder}>按顺序排序</Button> */}
-            {/* <div className="contain">
-                { result }
-            </div> */}
-            <Table dataSource={dataSource} columns={columns}></Table>
+            <Link to={url}>图鉴</Link>
+            <Link to={`${url}table`}>表格</Link>
+            <Switch>
+                <Route exact path={path}>
+                    <Months handleChange={onMonthChange}></Months>
+                    <Places handleChange={onPlaceChange}></Places>
+                    <Sizes handleChange={onSizeChange}></Sizes>
+                    <Button onClick={sortByPrice}>按售价排序（由低到高）</Button>
+                    <Button onClick={sortByOrder}>按顺序排序</Button>
+                    <div className="contain">
+                        { result }
+                    </div>
+                </Route>
+                <Route path={`${path}table`}>
+                    <Table dataSource={dataSource} columns={columns}></Table>
+                </Route>
+            </Switch>
         </div>
         
     )
