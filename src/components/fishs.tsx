@@ -7,6 +7,7 @@ import {
 } from 'react-redux'
 import {
     Button,
+    Table,
 } from 'antd'
 
 // 公共组件
@@ -34,6 +35,62 @@ interface RootState {
     place: string,
     size: string,
 }
+
+const columns: any[] = [
+
+    {
+        title: "名称",
+        dataIndex: 'name',
+        render: (value: any, record: any) => {
+            return (
+                <div >
+                    <img style={{ width: 50}}src={require(`../static/icons/fish/${record["file-name"]}.png`)} alt=""/>
+                    
+                    <span>{value['name-cn']}</span>
+                </div>
+            )
+        }
+    },
+    {
+        title: "序号",
+        dataIndex: 'id',
+        sorter: (a: any, b: any) => a.id - b.id,
+        sortDirections: ['descend'],
+    },
+    {
+        title: "英文名",
+        dataIndex: 'file-name',
+        render: (text: string) => text.toUpperCase()
+    },
+    {
+        title: '价格',
+        dataIndex: 'price',
+        sorter: (a: any, b: any) => a.price - b.price,
+
+    },
+    {
+        title: '地点',
+        dataIndex: 'availability',
+        render: (children: any) => <a>{children.location}</a>,
+        filters: [
+            {
+                text: '河流',
+                value: 'River',
+            },
+            {
+                text: '大海',
+                value: 'Sea',
+            }
+        ],
+        onFilter: (value: any, record: any) => {
+            return record.availability.location.includes(value)
+        } 
+    },
+    {
+        title: '阴影',
+        dataIndex: 'shadow',
+    }
+]
 
 
 
@@ -111,41 +168,42 @@ function Fishs(props: any) {
     
     
 
-    const result = Object.values(json).map((item, index) => {
-        const item_month = item.availability["month-northern"]
-        const item_place = item.availability.location
-        const item_size = item.shadow
+    // const result = Object.values(json).map((item, index) => {
+    //     const item_month = item.availability["month-northern"]
+    //     const item_place = item.availability.location
+    //     const item_size = item.shadow
 
+    //     if (matchMonth(months[month], item_month) && matchPlace(places[place], item_place) && matchSize(sizes[size], item_size)) {
+    //         return (
+    //             <div className="item" style={{order: sort ? item.price : 0}} key={item.id} data-price={item.price}>
+    //                 <div>
+    //                     {item.name['name-cn']}
+    //                 </div>
+    //                 <div>
+    //                     ${item.price}
+    //                 </div>
+    //                 <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)}/>
+    //             </div>
+    //         )
+    //     } else {
+    //         return null
+    //     }
+    // })
+    const dataSource = Object.values(json)
 
-        if (matchMonth(months[month], item_month) && matchPlace(places[place], item_place) && matchSize(sizes[size], item_size)) {
-            return (
-                <div className="item" style={{order: sort ? item.price : 0}} key={item.id} data-price={item.price}>
-                    <div>
-                        {item.name['name-cn']}
-                    </div>
-                    <div>
-                        ${item.price}
-                    </div>
-                    <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)}/>
-                </div>
-            )
-        } else {
-            return null
-        }
-        
-    })
     
 
     return (
         <div>
-            <Months handleChange={onMonthChange}></Months>
+            {/* <Months handleChange={onMonthChange}></Months>
             <Places handleChange={onPlaceChange}></Places>
             <Sizes handleChange={onSizeChange}></Sizes>
             <Button onClick={sortByPrice}>按售价排序（由低到高）</Button>
-            <Button onClick={sortByOrder}>按顺序排序</Button>
-            <div className="contain">
+            <Button onClick={sortByOrder}>按顺序排序</Button> */}
+            {/* <div className="contain">
                 { result }
-            </div>
+            </div> */}
+            <Table dataSource={dataSource} columns={columns}></Table>
         </div>
         
     )
