@@ -4,6 +4,8 @@ import {
     Link,
     Switch,
     Route,
+    useRouteMatch,
+    HashRouter,
 } from 'react-router-dom'
 
 import 'antd/dist/antd.css' 
@@ -20,22 +22,22 @@ import './index.scss'
 
 function App() {
     return (
-        <Router>
+        <HashRouter>
             <div className="app">
                 <header className="header"></header>
                 <main className="main">
                     <div className="types">
-                        <Link to='/'><div className="type type-fishs"></div></Link>
+                        <Link to='/fish'><div className="type type-fishs"></div></Link>
                         <Link to='/bugs'><div className="type type-bugs"></div></Link>
                         <Link to='/fossils'><div className="type type-fossils"></div></Link>
                         <Link to='/kk'><div className="type type-disc"></div></Link>
                         <Link to='/villagers'><div className="type type-villagers"></div></Link>
-                        {/* <div className="type type-flowers"></div> */}
-                        
                     </div>
                     
                     <Switch>
-                                       
+                        <Route path='/fish'>
+                            <Fishs></Fishs>
+                        </Route>       
                         <Route path='/bugs'>
                             <Bugs></Bugs>
                         </Route>
@@ -48,15 +50,13 @@ function App() {
                         <Route path="/villagers">
                             <Villagers></Villagers>
                         </Route>         
-                        <Route path='/'>
-                            <Fishs></Fishs>
-                        </Route>
+                        
                     </Switch>
                     
                 </main>
                 <footer className="footer"></footer>
             </div>         
-        </Router>
+        </HashRouter>
 
     )
 }

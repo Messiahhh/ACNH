@@ -202,8 +202,8 @@ function Fishs(props: any) {
 
     return (
         <div>
-            <Link to={url}>图鉴</Link>
-            <Link to={`${url}table`}>表格</Link>
+            <Button><Link to={url}>图鉴</Link></Button>
+            <Button><Link to={`${url}/table`}>表格</Link></Button>
             <Switch>
                 <Route exact path={path}>
                     <Months handleChange={onMonthChange}></Months>
@@ -215,7 +215,7 @@ function Fishs(props: any) {
                         { result }
                     </div>
                 </Route>
-                <Route path={`${path}table`}>
+                <Route path={`${path}/table`}>
                     <Table dataSource={dataSource} columns={columns}></Table>
                 </Route>
             </Switch>
