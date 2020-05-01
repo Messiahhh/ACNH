@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {
+    useState
+} from 'react'
 import {
     Link,
     Switch,
@@ -10,6 +12,7 @@ import {
     Button,
 } from 'antd'
 import json from '../api/json/villagers.json'
+import axios from 'axios'
 
 const personality: any = {
     Cranky: {
@@ -280,6 +283,12 @@ const columns: any[] = [
     }
 ]
 function Villagers() {
+    const [ name, setName ] = useState('阳明')
+    const [ birth, setBirth ] = useState('March 9th')
+    const [ personality, setPersonality ] = useState('Cranky')
+    const [ phrase, setPhrase ] = useState('ah-CHOO')
+    const [ imageUrl, setImageUrl ] = useState('http://acnhapi.com/images/villagers/3')
+
     const { path, url } = useRouteMatch()
     const dataSource = Object.values(json)
     const result = dataSource.map((item, index) => {
@@ -302,22 +311,22 @@ function Villagers() {
                 <Button className="btn" type="primary"><Link to={`${url}/table`}>表格</Link></Button>
             </div>
             <div className="villager">
-                <div className="villager-image">
+                <div className="villager-image" style={{ backgroundImage: `url(${imageUrl})`}}>
                     
                 </div>
                 <div className="villager-info">
-                    <div className="villager-name">苹果</div>
+                <div className="villager-name">{name}</div>
                     <div className="info">
                         <div className="label">生日</div>
-                        <div className="birth">12月11日</div>
+                        <div className="birth">{birth}</div>
                     </div>
                     <div className="info">
                         <div className="label">性格</div>
-                        <div className="birth">元气</div>
+                        <div className="birth">{personality}</div>
                     </div>
                     <div className="info">
                         <div className="label">口头禅</div>
-                        <div className="birth">巧不巧</div>
+                        <div className="birth">{phrase}</div>
                     </div>
                 </div>
             </div>
@@ -329,7 +338,18 @@ function Villagers() {
                 </Route>
                 <Route path={`${path}/table`}>
                     <div>
-                        <Table dataSource={dataSource} columns={columns} pagination={{ position: ['bottomCenter']}}></Table>
+                        <Table dataSource={dataSource} columns={columns} pagination={{ position: ['bottomCenter']}} onRow={record => {
+                            return {
+                                onClick: async (event: any) => {
+                                    const id = record.id
+                                    setName(record.name['name-cn'])
+                                    setBirth(record['birthday-string'])
+                                    setPersonality(record.personality)
+                                    setPhrase(record["catch-phrase"])                                    
+                                    setImageUrl(`http://acnhapi.com/images/villagers/${id}`)
+                                }
+                            }
+                        }}></Table>
                     </div>
                 </Route>
             </Switch>
