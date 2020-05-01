@@ -34,16 +34,9 @@ import {
     changeSize,
 } from '../store/actions'
 import Item from 'antd/lib/list/Item'
-
-// 接口
-interface RootState {
-    month: string,
-    place: string,
-    size: string,
-}
+import { State as RootState } from '../store/types'
 
 const columns: any[] = [
-
     {
         title: "名称",
         dataIndex: 'name',
@@ -202,15 +195,24 @@ function Fishs(props: any) {
 
     return (
         <div>
-            <Button><Link to={url}>图鉴</Link></Button>
-            <Button><Link to={`${url}/table`}>表格</Link></Button>
+            <div className="form">
+                <Button className="btn" type="primary"><Link to={url}>图鉴</Link></Button>
+                <Button className="btn" type="primary"><Link to={`${url}/table`}>表格</Link></Button>
+            </div>
+            
             <Switch>
                 <Route exact path={path}>
-                    <Months handleChange={onMonthChange}></Months>
-                    <Places handleChange={onPlaceChange}></Places>
-                    <Sizes handleChange={onSizeChange}></Sizes>
-                    <Button onClick={sortByPrice}>按售价排序（由低到高）</Button>
-                    <Button onClick={sortByOrder}>按顺序排序</Button>
+                    <div className="form">
+                        <Months handleChange={onMonthChange}></Months>
+                        <Places handleChange={onPlaceChange}></Places>
+                        <Sizes handleChange={onSizeChange}></Sizes>
+                    </div>
+                    <div className="form">
+                        <Button className="btn" onClick={sortByPrice}>按售价排序（由低到高）</Button>
+                        <Button className="btn" onClick={sortByOrder}>按顺序排序</Button>
+                    </div>
+                    
+                    
                     <div className="contain">
                         { result }
                     </div>

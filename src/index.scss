@@ -9,6 +9,16 @@ a {
 	display: block;
 }
 
+.form {
+    margin: 20px;
+
+    & > div {
+        margin-right: 20px;
+    }
+}
+.btn {
+    margin-right: 20px;
+}
 
 
 .header {
@@ -27,6 +37,8 @@ a {
     margin: 20px auto;
 
     .types {
+        width: 50%;
+        margin: auto;
         overflow: auto;
         padding: 20px 40px;  
         border-radius: 30px;

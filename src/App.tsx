@@ -7,7 +7,7 @@ import {
     useRouteMatch,
     HashRouter,
 } from 'react-router-dom'
-
+import { BackTop } from 'antd'
 import 'antd/dist/antd.css' 
 
 import Fishs from './components/fishs'
@@ -55,6 +55,7 @@ function App() {
                     
                 </main>
                 <footer className="footer"></footer>
+                <BackTop />
             </div>         
         </HashRouter>
 
