@@ -301,6 +301,26 @@ function Villagers() {
                 <Button className="btn" type="primary"><Link to={url}>图鉴</Link></Button>
                 <Button className="btn" type="primary"><Link to={`${url}/table`}>表格</Link></Button>
             </div>
+            <div className="villager">
+                <div className="villager-image">
+                    
+                </div>
+                <div className="villager-info">
+                    <div className="villager-name">苹果</div>
+                    <div className="info">
+                        <div className="label">生日</div>
+                        <div className="birth">12月11日</div>
+                    </div>
+                    <div className="info">
+                        <div className="label">性格</div>
+                        <div className="birth">元气</div>
+                    </div>
+                    <div className="info">
+                        <div className="label">口头禅</div>
+                        <div className="birth">巧不巧</div>
+                    </div>
+                </div>
+            </div>
             <Switch>
                 <Route exact path={path}>
                     <div className="contain">
@@ -309,7 +329,7 @@ function Villagers() {
                 </Route>
                 <Route path={`${path}/table`}>
                     <div>
-                        <Table dataSource={dataSource} columns={columns} pagination={{ position: ['bottomCenter'], pageSize: 20}}></Table>
+                        <Table dataSource={dataSource} columns={columns} pagination={{ position: ['bottomCenter']}}></Table>
                     </div>
                 </Route>
             </Switch>
