@@ -27,11 +27,26 @@ function App() {
                 <header className="header"></header>
                 <main className="main">
                     <div className="types">
-                        <Link to='/fish'><div className="type type-fishs"></div></Link>
-                        <Link to='/bugs'><div className="type type-bugs"></div></Link>
-                        <Link to='/fossils'><div className="type type-fossils"></div></Link>
-                        <Link to='/kk'><div className="type type-disc"></div></Link>
-                        <Link to='/villagers'><div className="type type-villagers"></div></Link>
+                        <Link to='/fish'>
+                            <div className="type type-fishs"></div>
+                            <div>鱼类图鉴</div>
+                        </Link>
+                        <Link to='/bugs'>
+                            <div className="type type-bugs"></div>
+                            <div>昆虫图鉴</div>
+                            </Link>
+                        <Link to='/fossils'>
+                            <div className="type type-fossils"></div>
+                            <div>化石图鉴</div>    
+                        </Link>
+                        <Link to='/kk'>
+                            <div className="type type-disc"></div>
+                            <div>K.K唱片</div>    
+                        </Link>
+                        <Link to='/villagers'>
+                            <div className="type type-villagers"></div>
+                            <div>岛民图鉴</div>    
+                        </Link>
                     </div>
                     
                     <Switch>

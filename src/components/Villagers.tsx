@@ -350,7 +350,7 @@ function Villagers() {
                     
                 </div>
                 <div className="villager-info">
-                <div className="villager-name">{villager.name}</div>
+                    <div className="villager-name">{villager.name}</div>
                     <div className="info">
                         <div className="label">生日</div>
                         <div className="birth">{villager.birth}</div>
