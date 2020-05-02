@@ -1,5 +1,6 @@
 import React, {
-    useState
+    useState,
+    useEffect,
 } from 'react'
 import {
     Link,
@@ -282,14 +283,51 @@ const columns: any[] = [
         sorter: (a: any, b: any) => a.gender.charCodeAt(0) - b.gender.charCodeAt(0)
     }
 ]
-function Villagers() {
-    const [ name, setName ] = useState('阳明')
-    const [ birth, setBirth ] = useState('March 9th')
-    const [ personality, setPersonality ] = useState('Cranky')
-    const [ phrase, setPhrase ] = useState('ah-CHOO')
-    const [ imageUrl, setImageUrl ] = useState('http://acnhapi.com/images/villagers/3')
 
+interface State {
+    id: number,
+    name: string,
+    birth: string,
+    personality: string,
+    species: string,
+    phrase: string,
+    imgUrl: string,
+}
+
+const initialVillager: State = {
+    id: 0,
+    name: '名字',
+    birth: '',
+    personality: '',
+    species: '',
+    phrase: '',
+    imgUrl: ''
+}
+
+function Villagers() {
+    const [ villager, setVillager] = useState(initialVillager)
     const { path, url } = useRouteMatch()
+
+    function changeVillager(record: any) {
+        setVillager({
+            id: record.id,
+            name: record.name['name-cn'],
+            birth: record['birthday-string'],
+            personality: personality[record.personality].text,
+            species: species[record.species].text,
+            phrase: record['catch-phrase'],
+            imgUrl: `http://acnhapi.com/images/villagers/${record.id}`,
+        })
+    }
+
+    useEffect(() => {
+        (async function () {
+            const id = ~~(Math.random() * 391) + 1
+            const { data } = await axios.get(`http://acnhapi.com/villagers/${id}`)
+            changeVillager(data)
+        })() 
+    }, [])
+
     const dataSource = Object.values(json)
     const result = dataSource.map((item, index) => {
         return (
@@ -306,29 +344,35 @@ function Villagers() {
     })
     return (
         <div>
-            <div className="form">
-                <Button className="btn" type="primary"><Link to={url}>图鉴</Link></Button>
-                <Button className="btn" type="primary"><Link to={`${url}/table`}>表格</Link></Button>
-            </div>
+            
             <div className="villager">
-                <div className="villager-image" style={{ backgroundImage: `url(${imageUrl})`}}>
+                <div className="villager-image" style={{ backgroundImage: `url(${villager.imgUrl})`}}>
                     
                 </div>
                 <div className="villager-info">
-                <div className="villager-name">{name}</div>
+                <div className="villager-name">{villager.name}</div>
                     <div className="info">
                         <div className="label">生日</div>
-                        <div className="birth">{birth}</div>
+                        <div className="birth">{villager.birth}</div>
                     </div>
                     <div className="info">
                         <div className="label">性格</div>
-                        <div className="birth">{personality}</div>
+                        <div className="birth">{villager.personality}</div>
+                    </div>
+                    <div className="info">
+                        <div className="label">种族</div>
+                        <div className="birth">{villager.species}</div>
                     </div>
                     <div className="info">
                         <div className="label">口头禅</div>
-                        <div className="birth">{phrase}</div>
+                        <div className="birth">{villager.phrase}</div>
                     </div>
                 </div>
+            </div>
+
+            <div className="form">
+                <Button className="btn" type="primary"><Link to={url}>图鉴</Link></Button>
+                <Button className="btn" type="primary"><Link to={`${url}/table`}>表格</Link></Button>
             </div>
             <Switch>
                 <Route exact path={path}>
@@ -340,13 +384,8 @@ function Villagers() {
                     <div>
                         <Table dataSource={dataSource} columns={columns} pagination={{ position: ['bottomCenter']}} onRow={record => {
                             return {
-                                onClick: async (event: any) => {
-                                    const id = record.id
-                                    setName(record.name['name-cn'])
-                                    setBirth(record['birthday-string'])
-                                    setPersonality(record.personality)
-                                    setPhrase(record["catch-phrase"])                                    
-                                    setImageUrl(`http://acnhapi.com/images/villagers/${id}`)
+                                onClick: (event: any) => {
+                                    changeVillager(record)
                                 }
                             }
                         }}></Table>
