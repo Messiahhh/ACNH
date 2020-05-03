@@ -19,7 +19,6 @@ import {
 
 import json from '../api/json/bugs.json'
 import Months from './common/months'
-import Places from './common/places'
 
 import { months } from '../api/utils/fishs'
 
@@ -57,7 +56,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../static/icons/bugs/${record["file-name"]}.png`)} alt=""/>
+                    <img style={{ width: 50}}src={require(`../static/icons/bugs/${record["file-name"]}.png`)} alt="昆虫"/>
                     <span>{value['name-cn']}</span>
                 </div>
             )
@@ -82,7 +81,7 @@ const columns: any[] = [
     {
         title: '地点',
         dataIndex: 'availability',
-        render: (children: any) => <a>{children.location}</a>,
+        render: (children: any) => <div>{children.location}</div>,
 
     },
 
@@ -118,7 +117,7 @@ function Bugs() {
                     <div>
                         ${item.price}
                     </div>
-                    <img className='fish_img' src={require(`../static/icons/bugs/${item['file-name']}.png`)}/>
+                    <img className='fish_img' src={require(`../static/icons/bugs/${item['file-name']}.png`)} alt="昆虫"/>
                 </div>
             )
         } else {

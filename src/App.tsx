@@ -1,22 +1,24 @@
-import React from 'react'
+import React, {
+    Suspense,
+    lazy,
+} from 'react'
 import {
-    BrowserRouter as Router,
     Link,
     Switch,
     Route,
-    useRouteMatch,
     HashRouter,
 } from 'react-router-dom'
 import { BackTop } from 'antd'
-import 'antd/dist/antd.css' 
-
-import Fishs from './components/fishs'
-import Bugs from './components/bugs'
-import Fossils from './components/fossils'
-import Music from './components/music'
-import Villagers from './components/Villagers'
 
 import './index.scss'
+
+
+const Fishs = lazy(() => import('./components/fishs'))
+const Bugs = lazy(() => import('./components/bugs'))
+const Fossils = lazy(() => import('./components/fossils'))
+const Music = lazy(() => import('./components/music'))
+const Villagers = lazy(() => import('./components/Villagers'))
+
 
 
 
@@ -48,25 +50,27 @@ function App() {
                             <div>岛民图鉴</div>    
                         </Link>
                     </div>
-                    
-                    <Switch>
-                        <Route path='/fish'>
-                            <Fishs></Fishs>
-                        </Route>       
-                        <Route path='/bugs'>
-                            <Bugs></Bugs>
-                        </Route>
-                        <Route path="/fossils">
-                            <Fossils></Fossils>
-                        </Route>
-                        <Route path="/kk">
-                            <Music></Music>
-                        </Route>
-                        <Route path="/villagers">
-                            <Villagers></Villagers>
-                        </Route>         
-                        
-                    </Switch>
+                    <Suspense fallback={<div>加载失败...</div>}>
+                        <Switch>
+                            <Route path='/fish'>
+                                <Fishs></Fishs>
+                            </Route>       
+                            <Route path='/bugs'>
+                                <Bugs></Bugs>
+                            </Route>
+                            <Route path="/fossils">
+                                <Fossils></Fossils>
+                            </Route>
+                            <Route path="/kk">
+                                <Music></Music>
+                            </Route>
+                            <Route path="/villagers">
+                                <Villagers></Villagers>
+                            </Route>         
+                            
+                        </Switch>
+
+                    </Suspense>
                     
                 </main>
                 <footer className="footer"></footer>

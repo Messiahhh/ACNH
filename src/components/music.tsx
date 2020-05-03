@@ -11,7 +11,7 @@ function Music() {
                 <div>
                     ${item["buy-price"]}
                 </div>
-                <img className='fish_img' src={require(`../static/images/music/${item['file-name']}.png`)}/>
+                <img className='fish_img' src={require(`../static/images/music/${item['file-name']}.png`)}  alt="kk"/>
             </div>
         )
     })

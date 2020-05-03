@@ -201,7 +201,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../static/icons/villagers/${record["file-name"]}.png`)} alt=""/>
+                    <img style={{ width: 50}}src={require(`../static/icons/villagers/${record["file-name"]}.png`)} alt="小动物"/>
                     <span>{value['name-cn']}</span>
                 </div>
             )
@@ -266,7 +266,7 @@ const columns: any[] = [
         title: '性别',
         dataIndex: 'gender',
         render: (value: string) => {
-            if (value == 'Male') return '男'
+            if (value === 'Male') return '男'
             return '女'
         },
         filters: [
@@ -338,7 +338,7 @@ function Villagers() {
                 <div>
                      {item.birthday.split('/')[1]} 月 {item.birthday.split('/')[0]} 日
                 </div>
-                <img className='fish_img' src={require(`../static/icons/villagers/${item['file-name']}.png`)}/>
+                <img className='fish_img' src={require(`../static/icons/villagers/${item['file-name']}.png`)} alt="小动物"/>
             </div>
         )
     })

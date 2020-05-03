@@ -33,7 +33,7 @@ import {
     changePlace,
     changeSize,
 } from '../store/actions'
-import Item from 'antd/lib/list/Item'
+// import Item from 'antd/lib/list/Item'
 import { State as RootState } from '../store/types'
 
 const columns: any[] = [
@@ -43,7 +43,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../static/icons/fish/${record["file-name"]}.png`)} alt=""/>
+                    <img style={{ width: 50}}src={require(`../static/icons/fish/${record["file-name"]}.png`)} alt="鱼"/>
                     
                     <span>{value['name-cn']}</span>
                 </div>
@@ -70,7 +70,7 @@ const columns: any[] = [
     {
         title: '地点',
         dataIndex: 'availability',
-        render: (children: any) => <a>{children.location}</a>,
+        render: (children: any) => <div>{children.location}</div>,
         filters: [
             {
                 text: '河流',
@@ -183,7 +183,7 @@ function Fishs(props: any) {
                     <div>
                         ${item.price}
                     </div>
-                    <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)}/>
+                    <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)} alt="鱼"/>
                 </div>
             )
         } else {

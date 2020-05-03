@@ -10,7 +10,7 @@ function Fossils() {
                 <div>
                     ${item.price}
                 </div>
-                <img className='fish_img' src={require(`../static/images/fossils/${item['file-name']}.png`)}/>
+                <img className='fish_img' src={require(`../static/images/fossils/${item['file-name']}.png`)}  alt="化石"/>
             </div>
         )
     })
