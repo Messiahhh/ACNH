@@ -50,7 +50,7 @@ function App() {
                             <div>岛民图鉴</div>    
                         </Link>
                     </div>
-                    <Suspense fallback={<div>加载失败...</div>}>
+                    <Suspense fallback={<div>加载中...</div>}>
                         <Switch>
                             <Route path='/fish'>
                                 <Fishs></Fishs>
