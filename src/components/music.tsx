@@ -1,7 +1,12 @@
-import React from 'react'
+import React, {
+    useState
+} from 'react'
 import json from '../api/json/music.json'
+import Audio from './common/audio'
 
 function Music() {
+    const [url, setUrl ] = useState("http://acnhapi.com/music/1")
+
     const result = Object.values(json).map((item, index) => {
         return (
             <div className="item" key={item.id}>
@@ -11,12 +16,15 @@ function Music() {
                 <div>
                     ${item["buy-price"]}
                 </div>
-                <img className='fish_img' src={require(`../static/images/music/${item['file-name']}.png`)}  alt="kk"/>
+                <img className='fish_img' onClick={() => setUrl(`http://acnhapi.com/music/${item.id}`)} src={require(`../static/images/music/${item['file-name']}.png`)}  alt="kk"/>
             </div>
         )
     })
+
+
     return (
         <div className="contain">
+            <Audio src={url}></Audio>
             { result }
         </div>
     )
