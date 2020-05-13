@@ -26,7 +26,7 @@ function App() {
     return (
         <HashRouter>
             <div className="app">
-                <header className="header"></header>
+                {/* <header className="header"></header> */}
                 <main className="main">
                     <div className="types">
                         <Link to='/fish'>
