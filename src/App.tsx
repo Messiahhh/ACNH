@@ -8,10 +8,7 @@ import {
     Route,
     HashRouter,
 } from 'react-router-dom'
-import {
-    useSelector,
-    useDispatch
-} from 'react-redux'
+
 import { BackTop } from 'antd'
 import Popup from './components/popup'
 import './index.scss'
@@ -27,13 +24,9 @@ const Villagers = lazy(() => import('./application/villager'))
 
 
 function App() {
-    let [fish, bug, p, s] = useSelector((state: any) => [state.fish.month, state.bug.month, state.fish.place, state.fish.size])
     return (
         <HashRouter>
-            { fish }
-            { bug }
-            {p}
-            {s}
+            
             <div className="app">
                 {/* <header className="header"></header> */}
                 <main className="main">
@@ -84,7 +77,6 @@ function App() {
                 </main>
                 <footer className="footer" ></footer>
                 <BackTop />
-                <Popup display="none" />
             </div>         
         </HashRouter>
 
