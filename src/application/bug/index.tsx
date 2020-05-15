@@ -17,15 +17,15 @@ import {
     Table,
 } from 'antd'
 
-import json from '../api/json/bugs.json'
-import Months from './common/months'
+import json from '../../common/json/bugs.json'
+import Months from '../../components/months'
 
-import { months } from '../api/utils/fishs'
+import { months } from '../../common/utils/fishs'
 
 import { 
     changeMonth
-} from '../store/actions'
-import { State as RootState } from '../store/types'
+} from './store/actionCreator'
+import { StateType as RootState } from './type'
 
 
 function monthMatchInterval(month: number, interval: string): boolean {
@@ -56,7 +56,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../static/icons/bugs/${record["file-name"]}.png`)} alt="昆虫"/>
+                    <img style={{ width: 50}}src={require(`../../static/icons/bugs/${record["file-name"]}.png`)} alt="昆虫"/>
                     <span>{value['name-cn']}</span>
                 </div>
             )
@@ -91,7 +91,7 @@ function Bugs() {
     const dispatch = useDispatch()
     const [
         month,
-    ] = useSelector((state: RootState) => [state.month])
+    ] = useSelector((state: any) => [state.bug.month])
     const { path, url } = useRouteMatch()
 
     function onMonthChange (value: string):void {
@@ -106,8 +106,6 @@ function Bugs() {
 
     const result = dataSource.map((item, index) => {
         const item_month = item.availability["month-northern"]
-        console.log(item_month);
-        
         if (matchMonth(months[month], item_month)) {
             return (
                 <div className="item" key={item.id}>
@@ -117,7 +115,7 @@ function Bugs() {
                     <div>
                         ${item.price}
                     </div>
-                    <img className='fish_img' src={require(`../static/icons/bugs/${item['file-name']}.png`)} alt="昆虫"/>
+                    <img className='fish_img' src={require(`../../static/icons/bugs/${item['file-name']}.png`)} alt="昆虫"/>
                 </div>
             )
         } else {
@@ -131,7 +129,7 @@ function Bugs() {
                 <Button className="btn" type="primary"><Link to={`${url}/table`}>表格</Link></Button>
             </div>
             <div className="form">
-                <Months handleChange={onMonthChange}></Months>
+                <Months handleChange={onMonthChange} month={month}></Months>
             </div>
             <Switch>
                 <Route exact path={path}>

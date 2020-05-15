@@ -1,0 +1,5 @@
+export const CHANGE_FISH_MONTH = "CHANGE_FISH_MONTH"
+export const CHANGE_BUG_MONTH = "CHANGE_BUG_MONTH"
+
+export const CHANGE_SIZE = "CHANGE_SIZE"
+export const CHANGE_PLACE = "CHANGE_PLACE"

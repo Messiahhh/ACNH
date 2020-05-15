@@ -1,22 +1,23 @@
 import { 
-    CHANGE_MONTH,
-    CHANGE_PLACE,
+    StateType,
+} from '../type'
+import {
+    ActionType,
+} from '../../../common/type'
+import {
+    CHANGE_FISH_MONTH,
     CHANGE_SIZE,
-    State,
-    ChangeStateAction,
- } from '../types'
+    CHANGE_PLACE,
+} from '../../../common/constant'
 
 
-const Select = (
-    state: State = {
-        month: "所有时间",
-        place: "所有地点",
-        size: "所有大小",
-    },
-    action: ChangeStateAction
-): State => {
+const fish = (state: StateType = {
+    month: "所有时间",
+    place: "所有地点",
+    size: "所有大小",
+}, action: ActionType) => {
     switch(action.type) {
-        case CHANGE_MONTH:
+        case CHANGE_FISH_MONTH:
             return Object.assign(state, {
                 month: action.payload
             })
@@ -33,5 +34,4 @@ const Select = (
     }
 }
 
-
-export default Select
+export default fish

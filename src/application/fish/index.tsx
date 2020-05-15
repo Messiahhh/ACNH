@@ -14,27 +14,28 @@ import {
 import {
     Button,
     Table,
+    Tooltip,
 } from 'antd'
 
 // 公共组件
-import Months from './common/months'
-import Places from './common/places'
-import Sizes from "./common/sizes";
+import Months from '../../components/months'
+import Places from '../../components/places'
+import Sizes from "../../components/sizes";
 
-import json from '../api/json/fishs.json'
+import json from '../../common/json/fishs.json'
 import {
     months,
     places,
     sizes,
-} from '../api/utils/fishs'
+} from '../../common/utils/fishs'
 
 import { 
     changeMonth,
     changePlace,
     changeSize,
-} from '../store/actions'
+} from './store/actionCreator'
 // import Item from 'antd/lib/list/Item'
-import { State as RootState } from '../store/types'
+import { StateType as RootState } from './type'
 
 const columns: any[] = [
     {
@@ -43,7 +44,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../static/icons/fish/${record["file-name"]}.png`)} alt="鱼"/>
+                    <img style={{ width: 50}}src={require(`../../static/icons/fish/${record["file-name"]}.png`)} alt="鱼"/>
                     
                     <span>{value['name-cn']}</span>
                 </div>
@@ -145,7 +146,7 @@ function Fishs(props: any) {
         month,
         place,
         size
-    ] = useSelector((state: RootState) => [state.month, state.place, state.size])
+    ] = useSelector((state: any) => [state.fish.month, state.fish.place, state.fish.size])
     
     function onMonthChange (value: string): void {
         dispatch(changeMonth(value))
@@ -176,15 +177,17 @@ function Fishs(props: any) {
 
         if (matchMonth(months[month], item_month) && matchPlace(places[place], item_place) && matchSize(sizes[size], item_size)) {
             return (
-                <div className="item" style={{order: sort ? item.price : 0}} key={item.id} data-price={item.price}>
-                    <div>
-                        {item.name['name-cn']}
+                <Tooltip title={item.name['name-cn']}>
+                    <div className="item" style={{order: sort ? item.price : 0}} key={item.id} data-price={item.price}>
+                        <div>
+                            {item.name['name-cn']}
+                        </div>
+                        <img className='fish_img' src={require(`../../static/icons/fish/${item["file-name"]}.png`)} alt="鱼"/>
+                        <div>
+                            ${item.price}
+                        </div>
                     </div>
-                    <div>
-                        ${item.price}
-                    </div>
-                    <img className='fish_img' src={require(`../static/icons/fish/${item["file-name"]}.png`)} alt="鱼"/>
-                </div>
+                </Tooltip>
             )
         } else {
             return null
@@ -203,12 +206,12 @@ function Fishs(props: any) {
             <Switch>
                 <Route exact path={path}>
                     <div className="form">
-                        <Months handleChange={onMonthChange}></Months>
-                        <Places handleChange={onPlaceChange}></Places>
-                        <Sizes handleChange={onSizeChange}></Sizes>
+                        <Months handleChange={onMonthChange} month={month}></Months>
+                        <Places handleChange={onPlaceChange} place={place}></Places>
+                        <Sizes handleChange={onSizeChange} size={size}></Sizes>
                     </div>
                     <div className="form">
-                        <Button className="btn" onClick={sortByPrice}>按售价排序（由低到高）</Button>
+                        <Button className="btn" onClick={sortByPrice}>按售价排序</Button>
                         <Button className="btn" onClick={sortByOrder}>按顺序排序</Button>
                     </div>
                     
@@ -218,7 +221,7 @@ function Fishs(props: any) {
                     </div>
                 </Route>
                 <Route path={`${path}/table`}>
-                    <Table dataSource={dataSource} columns={columns}></Table>
+                    <Table dataSource={dataSource} columns={columns} pagination={{ position: ['bottomCenter']}}></Table>
                 </Route>
             </Switch>
         </div>

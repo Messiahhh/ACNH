@@ -1,5 +1,5 @@
 import React from 'react'
-import json from '../api/json/fossils.json'
+import json from '../../common/json/fossils.json'
 function Fossils() {
     const result = Object.values(json).map((item, index) => {
         return (
@@ -10,7 +10,7 @@ function Fossils() {
                 <div>
                     ${item.price}
                 </div>
-                <img className='fish_img' src={require(`../static/images/fossils/${item['file-name']}.png`)}  alt="化石"/>
+                <img className='fish_img' src={require(`../../static/images/fossils/${item['file-name']}.png`)}  alt="化石"/>
             </div>
         )
     })

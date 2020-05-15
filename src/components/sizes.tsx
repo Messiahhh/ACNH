@@ -4,10 +4,11 @@ import { Select } from 'antd'
 const { Option } = Select
 
 function Sizes({
-    handleChange
+    handleChange,
+    size,
 }: any) {
     return (
-        <Select style={{ width: 200 }} placeholder="所有大小" onChange={(v) => handleChange(v)}>
+        <Select style={{ width: '30%' }} placeholder={size} onChange={(v) => handleChange(v)}>
             <Option value="所有大小">所有大小</Option>
             <Option value="最小">最小</Option>
             <Option value="小">小</Option>

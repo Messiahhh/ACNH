@@ -4,10 +4,11 @@ import { Select } from 'antd'
 const { Option } = Select
 
 function Months({
-    handleChange
+    handleChange,
+    month,
 }: any) {    
     return (
-        <Select style={{ width: 200 }} placeholder="所有时间" onChange={(value) => handleChange(value)}>
+        <Select style={{ width: '30%' }} placeholder={month} onChange={(value) => handleChange(value)}>
             <Option value="所有时间">所有时间</Option>
             <Option value="一月">一月</Option>
             <Option value="二月">二月</Option>

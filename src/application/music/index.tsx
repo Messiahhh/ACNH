@@ -1,8 +1,8 @@
 import React, {
     useState
 } from 'react'
-import json from '../api/json/music.json'
-import Audio from './common/audio'
+import json from '../../common/json/music.json'
+import Audio from '../../components/audio'
 
 function Music() {
     const [url, setUrl ] = useState("http://acnhapi.com/music/88")
@@ -16,7 +16,7 @@ function Music() {
                 <div>
                     ${item["buy-price"]}
                 </div>
-                <img className='fish_img' onClick={() => setUrl(`http://acnhapi.com/music/${item.id}`)} src={require(`../static/images/music/${item['file-name']}.png`)}  alt="kk"/>
+                <img className='fish_img' onClick={() => setUrl(`http://acnhapi.com/music/${item.id}`)} src={require(`../../static/images/music/${item['file-name']}.png`)}  alt="kk"/>
             </div>
         )
     })

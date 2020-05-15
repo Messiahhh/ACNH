@@ -7,7 +7,7 @@ function Times({
     handleChange
 } : any) {
     return (
-        <Select style={{ width: 200 }} onChange={(value) => handleChange(value)}>
+        <Select style={{ width: '30%' }} onChange={(value) => handleChange(value)}>
             <Option value="0">0:00</Option>
             <Option value="1">1:00</Option>
             <Option value="2">2:00</Option>

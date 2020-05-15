@@ -4,11 +4,11 @@ import { Select } from 'antd'
 const { Option } = Select
 
 function Places({
-    handleChange
+    handleChange,
+    place
 }: any) {
-
     return (
-        <Select style={{ width: 200 }} placeholder="所有地点" onChange={(v) => handleChange(v)}>
+        <Select style={{ width: '30%' }} placeholder={place} onChange={(v) => handleChange(v)}>
             <Option value="所有地点">所有地点</Option>
             <Option value="河流">河流</Option>
             <Option value="池塘">池塘</Option>

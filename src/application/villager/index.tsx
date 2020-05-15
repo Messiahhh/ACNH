@@ -12,7 +12,7 @@ import {
     Table,
     Button,
 } from 'antd'
-import json from '../api/json/villagers.json'
+import json from '../../common/json/villagers.json'
 import axios from 'axios'
 
 const personality: any = {
@@ -201,7 +201,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../static/icons/villagers/${record["file-name"]}.png`)} alt="小动物"/>
+                    <img style={{ width: 50}}src={require(`../../static/icons/villagers/${record["file-name"]}.png`)} alt="小动物"/>
                     <span>{value['name-cn']}</span>
                 </div>
             )
@@ -338,7 +338,7 @@ function Villagers() {
                 <div>
                      {item.birthday.split('/')[1]} 月 {item.birthday.split('/')[0]} 日
                 </div>
-                <img className='fish_img' src={require(`../static/icons/villagers/${item['file-name']}.png`)} alt="小动物"/>
+                <img className='fish_img' src={require(`../../static/icons/villagers/${item['file-name']}.png`)} alt="小动物"/>
             </div>
         )
     })

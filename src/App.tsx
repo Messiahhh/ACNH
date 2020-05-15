@@ -8,23 +8,32 @@ import {
     Route,
     HashRouter,
 } from 'react-router-dom'
+import {
+    useSelector,
+    useDispatch
+} from 'react-redux'
 import { BackTop } from 'antd'
-
+import Popup from './components/popup'
 import './index.scss'
 
 
-const Fishs = lazy(() => import('./components/fishs'))
-const Bugs = lazy(() => import('./components/bugs'))
-const Fossils = lazy(() => import('./components/fossils'))
-const Music = lazy(() => import('./components/music'))
-const Villagers = lazy(() => import('./components/Villagers'))
+const Fishs = lazy(() => import('./application/fish'))
+const Bugs = lazy(() => import('./application/bug'))
+const Fossils = lazy(() => import('./application/fossil'))
+const Music = lazy(() => import('./application/music'))
+const Villagers = lazy(() => import('./application/villager'))
 
 
 
 
 function App() {
+    let [fish, bug, p, s] = useSelector((state: any) => [state.fish.month, state.bug.month, state.fish.place, state.fish.size])
     return (
         <HashRouter>
+            { fish }
+            { bug }
+            {p}
+            {s}
             <div className="app">
                 {/* <header className="header"></header> */}
                 <main className="main">
@@ -73,8 +82,9 @@ function App() {
                     </Suspense>
                     
                 </main>
-                <footer className="footer"></footer>
+                <footer className="footer" ></footer>
                 <BackTop />
+                <Popup display="none" />
             </div>         
         </HashRouter>
 

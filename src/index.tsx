@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import zhCN from 'antd/es/locale/zh_CN'
 
 import App from './app'
-import reducer from './store/reducers'
+import reducer from './store/reducer'
 import { ConfigProvider } from 'antd';
 
 let store = createStore(reducer)
