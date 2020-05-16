@@ -6,6 +6,14 @@ $color: #000;
 $background: #f8eebc;
 $ItemBackground: #f7f4e5;
 
+
+.ant-table-wrapper {
+    overflow: auto;
+
+    .ant-table-row {
+        background: #fff;
+    }
+}
 .mask {
     position: fixed;
     width: 100vw;

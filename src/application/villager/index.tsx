@@ -321,11 +321,11 @@ function Villagers() {
     }
 
     useEffect(() => {
-        (async function () {
-            const id = ~~(Math.random() * 391) + 1
-            const { data } = await axios.get(`http://acnhapi.com/villagers/${id}`)
-            changeVillager(data)
-        })() 
+        // (async function () {
+        //     const id = ~~(Math.random() * 391) + 1
+        //     const { data } = await axios.get(`http://acnhapi.com/villagers/${id}`)
+        //     changeVillager(data)
+        // })() 
     }, [])
 
     const dataSource = Object.values(json)
@@ -345,7 +345,7 @@ function Villagers() {
     return (
         <div>
             
-            <div className="villager">
+            {/* <div className="villager">
                 <div className="villager-image" style={{ backgroundImage: `url(${villager.imgUrl})`}}>
                     
                 </div>
@@ -368,7 +368,7 @@ function Villagers() {
                         <div className="birth">{villager.phrase}</div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="form">
                 <Button className="btn" type="primary"><Link to={url}>图鉴</Link></Button>

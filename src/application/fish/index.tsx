@@ -1,11 +1,12 @@
 import React, {
-    useState
+    useState, ElementType, useEffect
 } from 'react'
 import {
     Link,
     Switch,
     Route,
     useRouteMatch,
+    useLocation,
 } from 'react-router-dom'
 import { 
     useSelector,
@@ -44,7 +45,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../../static/icons/fish/${record["file-name"]}.png`)} alt="鱼"/>
+                    <img className="fish_img" style={{ width: 50}} src="./loading.svg" data-src={`./fish/${record["file-name"]}.png`} alt="鱼"/>
                     
                     <span>{value['name-cn']}</span>
                 </div>
@@ -138,8 +139,57 @@ function matchSize(s1: string, s2: string): boolean {
 }
 
 
+function useObserver(className: string, callback: any) {
+    const observer = new IntersectionObserver(callback)
+    Array.from(document.querySelectorAll(`.${className}`)).forEach(i => {
+        observer.observe(i)
+    })
+    return observer
+}
+
+function LazyImage({
+    loadingSource,
+    source,
+    alt,
+}: any) {
+    return (
+        <img src={loadingSource} data-set={source} alt="alt" />
+    )
+}
+
+
 function Fishs(props: any) {
+    
+    const observer = new IntersectionObserver(cb)
+    function cb(entries: any) {
+        entries.forEach((i: any) => {
+            let loaded = false
+            if (i.intersectionRatio <= 0) return
+            else {
+                if (loaded) return 
+                else {
+                    const { target } = i
+                    const url = (target as any).dataset.src
+                    target.setAttribute('src', url)
+                } 
+            }
+        })
+    }
+    
+    const location = useLocation()
+    useEffect(() => {
+        Array.from(document.querySelectorAll(`.fish_img`)).forEach(i => {
+            observer.observe(i)
+        })
+        return () => {
+            Array.from(document.querySelectorAll(`.fish_img`)).forEach(i => {
+                observer.unobserve(i)
+            })
+        }
+    }, [location])
+
     const { path, url} = useRouteMatch()
+
     const [sort, setSort] = useState(false) 
     const dispatch = useDispatch()
     const [
@@ -182,7 +232,7 @@ function Fishs(props: any) {
                         <div>
                             {item.name['name-cn']}
                         </div>
-                        <img className='fish_img' src={require(`../../static/icons/fish/${item["file-name"]}.png`)} alt="鱼"/>
+                        <img className='fish_img' src='./loading.svg'  data-src={`./fish/${item["file-name"]}.png`} alt="鱼"/>
                         <div>
                             ${item.price}
                         </div>
@@ -193,8 +243,6 @@ function Fishs(props: any) {
             return null
         }
     })
-
-    
 
     return (
         <div>
