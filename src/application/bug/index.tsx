@@ -20,34 +20,16 @@ import {
 import json from '../../common/json/bugs.json'
 import Months from '../../components/months'
 
-import { months } from '../../common/utils/fishs'
+import { months } from '../../common/utils/fish_data'
 
 import { 
     changeMonth
 } from './store/actionCreator'
 import { StateType as RootState } from './type'
-
-
-function monthMatchInterval(month: number, interval: string): boolean {
-    const [month_start, month_end] = interval.split('-').map(i => Number(i))
-    if (month_start > month_end) {
-        if (month >= month_start || month <= month_end) return true
-    }
-    else {
-        if (month >= month_start && month <= month_end) return true
-    }
-    return false
-}
-
-function matchMonth(month: number, interval: string){
-    if (month === 0 || interval === '') return true
-    if (interval.includes('&')) {
-        const [interval_a, interval_b] = interval.split('&').map(s => s.trim())
-        return monthMatchInterval(month, interval_a) || monthMatchInterval(month, interval_b)
-    } else {
-        return monthMatchInterval(month, interval)
-    }
-}
+import { matchMonth } from '../../common/utils/fish_match'
+import { useObserver } from '../../common/utils/observer'
+import LazyImage from '../../components/LazyImage'
+const observer = useObserver()
 
 const columns: any[] = [
     {
@@ -56,7 +38,8 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../../static/icons/bugs/${record["file-name"]}.png`)} alt="昆虫"/>
+                    <LazyImage className='fish_img' style={{ width: 50}} loadingSource='./loading.svg' source={`./icons/bugs/${record["file-name"]}.png`} observer={observer}></LazyImage>
+                    {/* <img style={{ width: 50}}src={require(`../../static/icons/bugs/${record["file-name"]}.png`)} alt="昆虫"/> */}
                     <span>{value['name-cn']}</span>
                 </div>
             )
@@ -115,7 +98,8 @@ function Bugs() {
                     <div>
                         ${item.price}
                     </div>
-                    <img className='fish_img' src={require(`../../static/icons/bugs/${item['file-name']}.png`)} alt="昆虫"/>
+                    <LazyImage className='fish_img' loadingSource='./loading.svg' source={`./icons/bugs/${item["file-name"]}.png`} observer={observer}></LazyImage>
+                    {/* <img className='fish_img' src={require(`../../static/icons/bugs/${item['file-name']}.png`)} alt="昆虫"/> */}
                 </div>
             )
         } else {

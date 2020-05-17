@@ -1,5 +1,7 @@
 import React, {
-    useState, ElementType, useEffect
+    useState, 
+    useEffect,
+    useRef,
 } from 'react'
 import {
     Link,
@@ -19,6 +21,7 @@ import {
 } from 'antd'
 
 // 公共组件
+import LazyImage from '../../components/LazyImage'
 import Months from '../../components/months'
 import Places from '../../components/places'
 import Sizes from "../../components/sizes";
@@ -28,7 +31,12 @@ import {
     months,
     places,
     sizes,
-} from '../../common/utils/fishs'
+} from '../../common/utils/fish_data'
+import {
+    matchMonth,
+    matchPlace,
+    matchSize,
+} from '../../common/utils/fish_match'
 
 import { 
     changeMonth,
@@ -37,7 +45,7 @@ import {
 } from './store/actionCreator'
 // import Item from 'antd/lib/list/Item'
 import { StateType as RootState } from './type'
-
+import { useObserver } from '../../common/utils/observer'
 const columns: any[] = [
     {
         title: "名称",
@@ -45,8 +53,8 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img className="fish_img" style={{ width: 50}} src="./loading.svg" data-src={`./fish/${record["file-name"]}.png`} alt="鱼"/>
-                    
+                    {/* <img className="fish_img" style={{ width: 50}} src="./loading.svg" data-src={`./fish/${record["file-name"]}.png`} alt="鱼"/> */}
+                    <LazyImage className='fish_img' style={{ width: 50}} loadingSource='./loading.svg' source={`./icons/fish/${record["file-name"]}.png`} observer={observer}></LazyImage>
                     <span>{value['name-cn']}</span>
                 </div>
             )
@@ -93,100 +101,9 @@ const columns: any[] = [
     }
 ]
 
-
-
-/**
- * @param {number} month
- * @param {string} interval
- * @returns {boolean}
- */
-function monthMatchInterval(month: number, interval: string): boolean {
-    const [month_start, month_end] = interval.split('-').map(i => Number(i))
-    if (month_start > month_end) {
-        if (month >= month_start || month <= month_end) return true
-    }
-    else {
-        if (month >= month_start && month <= month_end) return true
-    }
-    return false
-}
-
-function matchMonth(month: number, interval: string){
-    if (month === 0 || interval === '') return true
-    if (interval.includes('&')) {
-        const [interval_a, interval_b] = interval.split('&').map(s => s.trim())
-        return monthMatchInterval(month, interval_a) || monthMatchInterval(month, interval_b)
-    } else {
-        return monthMatchInterval(month, interval)
-    }
-}
-
-function matchPlace(p1: string, p2: string): boolean {
-    if (p1 === '') return true
-    if (p2.includes('&')) {
-        const [place_a, place_b] = p2.split('&').map(s => s.trim())
-        return p1 === place_a || p1 === place_b
-    }
-    return p1 === p2
-}
-
-function matchSize(s1: string, s2: string): boolean {
-    if (s1 === '') return true
-    if (s1 === 'fin' && s2.includes('fin')) return true
-    if (s1.includes('6') && s2.includes('fin (6)')) return true 
-    if (s1.includes('Medium') && s2.includes('fin (4)')) return true
-    return s1 === s2 
-}
-
-
-function useObserver(className: string, callback: any) {
-    const observer = new IntersectionObserver(callback)
-    Array.from(document.querySelectorAll(`.${className}`)).forEach(i => {
-        observer.observe(i)
-    })
-    return observer
-}
-
-function LazyImage({
-    loadingSource,
-    source,
-    alt,
-}: any) {
-    return (
-        <img src={loadingSource} data-set={source} alt="alt" />
-    )
-}
-
+const observer = useObserver()
 
 function Fishs(props: any) {
-    
-    const observer = new IntersectionObserver(cb)
-    function cb(entries: any) {
-        entries.forEach((i: any) => {
-            let loaded = false
-            if (i.intersectionRatio <= 0) return
-            else {
-                if (loaded) return 
-                else {
-                    const { target } = i
-                    const url = (target as any).dataset.src
-                    target.setAttribute('src', url)
-                } 
-            }
-        })
-    }
-    
-    const location = useLocation()
-    useEffect(() => {
-        Array.from(document.querySelectorAll(`.fish_img`)).forEach(i => {
-            observer.observe(i)
-        })
-        return () => {
-            Array.from(document.querySelectorAll(`.fish_img`)).forEach(i => {
-                observer.unobserve(i)
-            })
-        }
-    }, [location])
 
     const { path, url} = useRouteMatch()
 
@@ -232,7 +149,8 @@ function Fishs(props: any) {
                         <div>
                             {item.name['name-cn']}
                         </div>
-                        <img className='fish_img' src='./loading.svg'  data-src={`./fish/${item["file-name"]}.png`} alt="鱼"/>
+                        <LazyImage className='fish_img' loadingSource='./loading.svg' source={`./icons/fish/${item["file-name"]}.png`} observer={observer}></LazyImage>
+                        {/* <img className='fish_img' src='./loading.svg'  data-src={`./fish/${item["file-name"]}.png`} alt="鱼"/> */}
                         <div>
                             ${item.price}
                         </div>
