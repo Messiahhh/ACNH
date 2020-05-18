@@ -1,5 +1,14 @@
 import React, { useRef, useEffect } from 'react'
 
+interface LazyImageType {
+    loadingSource: string,
+    source: string,
+    observer: any,
+    className?: string,
+    style?: React.CSSProperties,
+    onClick?: () => void,
+}
+
 function LazyImage({
     loadingSource,
     source,
@@ -7,8 +16,8 @@ function LazyImage({
     style,
     observer,
     onClick,
-}: any) {
-    const myRef = useRef(null)
+}: LazyImageType) {
+    const myRef = useRef<HTMLImageElement | null>(null)
     useEffect(() => {
         observer.observe(myRef.current)
         return () => {

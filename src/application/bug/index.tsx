@@ -98,7 +98,6 @@ function Bugs() {
                         ${item.price}
                     </div>
                     <LazyImage className='fish_img' loadingSource='./loading.svg' source={`./icons/bugs/${item["file-name"]}.png`} observer={observer}></LazyImage>
-                    {/* <img className='fish_img' src={require(`../../static/icons/bugs/${item['file-name']}.png`)} alt="昆虫"/> */}
                 </div>
             )
         } else {
