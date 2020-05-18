@@ -14,7 +14,9 @@ import {
 } from 'antd'
 import json from '../../common/json/villagers.json'
 import axios from 'axios'
-
+import LazyImage from '../../components/LazyImage'
+import { useObserver } from '../../common/utils/observer'
+const observer = useObserver()
 const personality: any = {
     Cranky: {
         text: '暴躁',
@@ -201,7 +203,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <img style={{ width: 50}}src={require(`../../static/icons/villagers/${record["file-name"]}.png`)} alt="小动物"/>
+                    <LazyImage className="fish_img" style={{ width: 50}} loadingSource='./loading.svg' source={`./icons/villagers/${record["file-name"]}.png`} observer={observer}></LazyImage>
                     <span>{value['name-cn']}</span>
                 </div>
             )
@@ -338,7 +340,8 @@ function Villagers() {
                 <div>
                      {item.birthday.split('/')[1]} 月 {item.birthday.split('/')[0]} 日
                 </div>
-                <img className='fish_img' src={require(`../../static/icons/villagers/${item['file-name']}.png`)} alt="小动物"/>
+                <LazyImage className="fish_img" loadingSource='./loading.svg' source={`./icons/villagers/${item['file-name']}.png`} observer={observer}></LazyImage>
+                {/* <img className='fish_img' src={require(`../../static/icons/villagers/${item['file-name']}.png`)} alt="小动物"/> */}
             </div>
         )
     })

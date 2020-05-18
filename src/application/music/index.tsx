@@ -3,8 +3,10 @@ import React, {
 } from 'react'
 import json from '../../common/json/music.json'
 import Audio from '../../components/audio'
-
+import LazyImage from '../../components/LazyImage'
+import { useObserver } from '../../common/utils/observer'
 function Music() {
+    const observer = useObserver()
     const [url, setUrl ] = useState("http://acnhapi.com/music/88")
 
     const result = Object.values(json).map((item, index) => {
@@ -16,7 +18,8 @@ function Music() {
                 <div>
                     ${item["buy-price"]}
                 </div>
-                <img className='fish_img' onClick={() => setUrl(`http://acnhapi.com/music/${item.id}`)} src={require(`../../static/images/music/${item['file-name']}.png`)}  alt="kk"/>
+                <LazyImage className="fish_img" loadingSource='./loading.svg' source={`./images/music/${item['file-name']}.png`} observer={observer} onClick={() => setUrl(`http://acnhapi.com/music/${item.id}`)}></LazyImage>
+                {/* <img className='fish_img' onClick={() => setUrl(`http://acnhapi.com/music/${item.id}`)} src={require(`../../static/images/music/${item['file-name']}.png`)}  alt="kk"/> */}
             </div>
         )
     })

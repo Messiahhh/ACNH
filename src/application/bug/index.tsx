@@ -38,8 +38,7 @@ const columns: any[] = [
         render: (value: any, record: any) => {
             return (
                 <div >
-                    <LazyImage className='fish_img' style={{ width: 50}} loadingSource='./loading.svg' source={`./icons/bugs/${record["file-name"]}.png`} observer={observer}></LazyImage>
-                    {/* <img style={{ width: 50}}src={require(`../../static/icons/bugs/${record["file-name"]}.png`)} alt="昆虫"/> */}
+                    <LazyImage  className='fish_img' style={{ width: 50}} loadingSource='./loading.svg' source={`./icons/bugs/${record["file-name"]}.png`} observer={observer}></LazyImage>
                     <span>{value['name-cn']}</span>
                 </div>
             )

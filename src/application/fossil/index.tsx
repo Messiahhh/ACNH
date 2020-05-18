@@ -1,6 +1,10 @@
 import React from 'react'
 import json from '../../common/json/fossils.json'
+import LazyImage from '../../components/LazyImage'
+import { useObserver } from '../../common/utils/observer'
+
 function Fossils() {
+    const observer = useObserver()
     const result = Object.values(json).map((item, index) => {
         return (
             <div className="item" key={index}>
@@ -10,7 +14,7 @@ function Fossils() {
                 <div>
                     ${item.price}
                 </div>
-                <img className='fish_img' src={require(`../../static/images/fossils/${item['file-name']}.png`)}  alt="化石"/>
+                <LazyImage className="fish_img" loadingSource='./loading.svg' source={`./images/fossils/${item['file-name']}.png`} observer={observer}></LazyImage>
             </div>
         )
     })

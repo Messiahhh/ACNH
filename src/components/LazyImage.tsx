@@ -6,6 +6,7 @@ function LazyImage({
     className,
     style,
     observer,
+    onClick,
 }: any) {
     const myRef = useRef(null)
     useEffect(() => {
@@ -15,7 +16,7 @@ function LazyImage({
         }
     }, [])
     return (
-        <img className={className} style={style} src={loadingSource} data-src={source} ref={myRef} />
+        <img className={className} style={style} src={loadingSource} data-src={source} ref={myRef} onClick={onClick}/>
     )
 }
 
