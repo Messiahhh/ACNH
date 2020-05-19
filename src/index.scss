@@ -6,6 +6,10 @@ $color: #000;
 $background: #f8eebc;
 $ItemBackground: #f7f4e5;
 
+@font-face {
+    font-family: 'myFamily';
+    src: url('./static//font/NotoSerifSC-Medium.otf')
+}
 
 .ant-table-wrapper {
     overflow: auto;
@@ -25,12 +29,51 @@ $ItemBackground: #f7f4e5;
     align-items: center;
     background: rgba(0, 0, 0, 0.6);
     .popup {
-        width: 600px;
-        height: 800px;
+        overflow: auto;
+        width: 1200px;
+        height: 700px;
         border-radius: 20px;
-        background: #f8eebc;        
+        background: #f8eebc;
+        display: flex;    
+
+        .part-one {
+            flex-basis: 50%;
+
+            .name {
+                font-size: 32px;
+                margin: 20px;
+                text-align: center;
+            }
+
+            .img {
+                display: block;
+                margin: 0 auto;
+                width: 400px;
+                height: 200px;
+            }
+        }
+
+        .part-two {
+            font-size: 24px;
+            flex: 1;
+            padding: 30px;
+
+            .months-label {
+                margin: 10px 0;
+            }
+            .months {
+                height: 200px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                justify-content: center;
+
+                .month {
+                }
+            }
+        }
     }
 }
+
 
 
 
@@ -38,7 +81,7 @@ $ItemBackground: #f7f4e5;
 body {
     margin: 40px 0 0 0 ;
     background: #e6e1ce;
-	// background: url('./static/others/pattern-leaves-white.jpg');
+    font-family: "myFamily", serif;
 }
 
 a {
@@ -53,6 +96,19 @@ a {
     background: #01a6bf !important;
     border-color: #01a6bf !important;
     color: #fff !important;
+}
+
+.title {
+    font-size: 40px;
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.discription {
+    font-size: 26px;
+    margin-top: 20px;
+
 }
 
 .main {
@@ -221,6 +277,13 @@ a {
     .mask .popup {
         width: 80vw;
         height: 65vh;
+
+        flex-direction: column;
+        .part-one .img {
+            width: 100%;
+            height: 60vw;
+
+        }
     }
 
     body {
@@ -283,6 +346,8 @@ a {
         height: 120px;
         
     }
+
+    
 }
 
 

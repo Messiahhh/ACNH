@@ -54,6 +54,15 @@ function App() {
                     </div>
                     <Suspense fallback={<div>加载中...</div>}>
                         <Switch>
+                            <Route path='/' exact>
+                                <div className="title">Animal Crossing: New Horizon</div>
+                                <div className="discription">
+                                    用爱发电的动物森友会网站。<br />
+                                    最近在准备考试，所以都是抽空才写一点点代码，功能相比市面上的项目差了很多功能。<br />
+                                    本项目是部署在Github Pages上的，所以国内访问的话速度估计十分的捉急，不过本项目本来就是自己写着玩的，没想过有用户的问题。<br />
+                                    未来也许会增加各种功能吧。
+                                </div>
+                            </Route>
                             <Route path='/fish'>
                                 <Fishs></Fishs>
                             </Route>       
@@ -77,6 +86,7 @@ function App() {
                 </main>
                 <footer className="footer" ></footer>
                 <BackTop />
+                {/* <Popup /> */}
             </div>         
         </HashRouter>
 
