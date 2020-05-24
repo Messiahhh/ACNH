@@ -11,6 +11,7 @@ import {
 
 import { BackTop } from 'antd'
 import Popup from './components/popup'
+import FancyButton from './components/Button'
 import './index.scss'
 
 
